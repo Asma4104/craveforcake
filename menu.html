@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu — Crave for Cake</title>
+<meta name="description" content="Custom cakes, chocolate cakes, signature cakes, brownies and cupcakes from Crave for Cake.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Jost:ital,wght@0,200..600;1,300..500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/logo-mark.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<header class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow">The menu</span>
+    <h1>Everything we bake</h1>
+    <p class="lede">Choose a category, then tap any cake to pick your size, flavour and message.</p>
+  </div>
+  <div class="scallop scallop--cream pagehead__scallop" aria-hidden="true"></div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <p class="menu-note" id="menuNote" data-reveal></p>
+    <div class="filters" id="menuFilters" role="group" aria-label="Filter menu by category"></div>
+    <div class="grid grid--3" id="menuGrid"></div>
+  </div>
+</section>
+
+<div class="scallop scallop--espresso" aria-hidden="true"></div>
+<section class="cta-band">
+  <div class="wrap">
+    <span class="eyebrow">Something not listed?</span>
+    <h2>We also make it <em>to order</em></h2>
+    <p>If you have a flavour, a size or a design in mind that isn't on the menu, send it over and we'll tell you what's possible.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn--light" href="order.html">Open the order form</a>
+      <a class="btn btn--wa" id="ctaWa" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var wa = document.getElementById("ctaWa");
+    if (wa) wa.href = "https://wa.me/" + SITE.contact.whatsapp +
+      "?text=" + encodeURIComponent("Hi " + SITE.brand.name + "! I have a custom request.");
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# stale export from an earlier version of the site
+CraveFor-Cake-Website.zip
+
+# OS / editor noise
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# scratch files from the image tools
+tools/_*.py
+tools/_*.js
+tools/_*.txt

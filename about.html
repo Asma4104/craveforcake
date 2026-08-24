@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — Crave for Cake</title>
+<meta name="description" content="Crave for Cake makes fresh, beautifully designed cakes and desserts for birthdays, celebrations and special occasions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Jost:ital,wght@0,200..600;1,300..500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/logo-mark.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<header class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow">About us</span>
+    <h1>Made With Love,<br>Baked To Crave</h1>
+    <p class="lede">A small kitchen, a short list of ingredients, and cakes made one order at a time.</p>
+  </div>
+  <div class="scallop scallop--cream pagehead__scallop" aria-hidden="true"></div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="about-split">
+      <figure class="about-figure" data-reveal style="margin:0">
+        <img id="aboutImage" src="assets/images/about.jpg" alt="Inside the Crave for Cake kitchen" width="900" height="1100">
+      </figure>
+      <div id="aboutBody" data-reveal style="--d:120ms"></div>
+    </div>
+  </div>
+</section>
+
+<div class="scallop scallop--beige" aria-hidden="true"></div>
+<section class="section section--tint">
+  <div class="wrap">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">How it works</span>
+      <h2>From your idea to your table</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="grid grid--4">
+      <article class="feature" data-reveal>
+        <div class="feature__icon" aria-hidden="true">💬</div>
+        <h3>Tell us the plan</h3>
+        <p>Share the occasion, the date, the flavour and any design you have in mind.</p>
+      </article>
+      <article class="feature" data-reveal style="--d:80ms">
+        <div class="feature__icon" aria-hidden="true">🎨</div>
+        <h3>We design it</h3>
+        <p>We confirm the size, finish and message, then agree the price with you.</p>
+      </article>
+      <article class="feature" data-reveal style="--d:160ms">
+        <div class="feature__icon" aria-hidden="true">🎂</div>
+        <h3>We bake it fresh</h3>
+        <p>Baking starts close to your date so the cake reaches you at its best.</p>
+      </article>
+      <article class="feature" data-reveal style="--d:240ms">
+        <div class="feature__icon" aria-hidden="true">🎁</div>
+        <h3>It arrives boxed</h3>
+        <p>Packed carefully and delivered ready to put straight on the table.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<div class="scallop scallop--beige scallop--flip" aria-hidden="true"></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">Occasions</span>
+      <h2>What we bake for</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="occasions" id="occasions"></div>
+  </div>
+</section>
+
+<div class="scallop scallop--espresso" aria-hidden="true"></div>
+<section class="cta-band">
+  <div class="wrap">
+    <span class="eyebrow">Say hello</span>
+    <h2>Tell us what you're <em>celebrating</em></h2>
+    <p>We'll help you pick the size, the flavour and the finish.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn--light" href="order.html">Order Now</a>
+      <a class="btn btn--wa" id="ctaWa" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var wa = document.getElementById("ctaWa");
+    if (wa) wa.href = "https://wa.me/" + SITE.contact.whatsapp +
+      "?text=" + encodeURIComponent("Hi " + SITE.brand.name + "! I'd like to ask about a cake.");
+  });
+</script>
+</body>
+</html>

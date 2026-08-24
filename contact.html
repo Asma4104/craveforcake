@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Crave for Cake</title>
+<meta name="description" content="Reach Crave for Cake on WhatsApp, Instagram, phone or email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Jost:ital,wght@0,200..600;1,300..500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/logo-mark.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<header class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h1>Talk to us</h1>
+    <p class="lede">WhatsApp is the quickest way to reach us. We bake and deliver in Karachi.</p>
+  </div>
+  <div class="scallop scallop--cream pagehead__scallop" aria-hidden="true"></div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div data-reveal>
+        <h2 style="font-size:clamp(1.5rem,2.4vw,2rem);margin-bottom:1.4rem">Where to find us</h2>
+        <div class="info-list" id="contactInfo"></div>
+      </div>
+
+      <form class="formcard" id="contactForm" novalidate data-reveal style="--d:120ms">
+        <span class="eyebrow">Send a message</span>
+        <h2 style="font-size:clamp(1.5rem,2.4vw,2rem);margin-bottom:1.6rem">Ask us anything</h2>
+
+        <div class="field">
+          <label for="c-name">Your name</label>
+          <input id="c-name" type="text" autocomplete="name" placeholder="Full name" required>
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input id="c-email" type="email" autocomplete="email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="c-message">Message</label>
+          <textarea id="c-message" placeholder="What would you like to know?" required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" type="submit" id="contactSubmit">Send message</button>
+        </div>
+        <div class="form-status" id="contactStatus" role="status" aria-live="polite"></div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<div class="scallop scallop--espresso" aria-hidden="true"></div>
+<section class="cta-band">
+  <div class="wrap">
+    <span class="eyebrow">Faster still</span>
+    <h2>Send it straight to <em>WhatsApp</em></h2>
+    <p>Photos, dates, flavours — everything is easier in one chat.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn--wa" id="ctaWa" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+      <a class="btn btn--light" href="order.html">Use the order form</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var wa = document.getElementById("ctaWa");
+    if (wa) wa.href = "https://wa.me/" + SITE.contact.whatsapp +
+      "?text=" + encodeURIComponent("Hi " + SITE.brand.name + "! I have a question.");
+  });
+</script>
+</body>
+</html>

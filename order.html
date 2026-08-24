@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Now — Crave for Cake</title>
+<meta name="description" content="Place a cake order with Crave for Cake, or send your order straight to WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Jost:ital,wght@0,200..600;1,300..500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="apple-touch-icon" href="assets/images/logo-mark.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<header class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow">Order now</span>
+    <h1>Let's get baking</h1>
+    <p class="lede">Fill in what you need and send it over. Anything you're unsure about, leave blank — we'll confirm it with you.</p>
+  </div>
+  <div class="scallop scallop--cream pagehead__scallop" aria-hidden="true"></div>
+</header>
+
+<section class="section">
+  <div class="wrap" style="max-width:900px">
+    <div class="terms-card" id="orderTerms" data-reveal></div>
+    <form class="formcard" id="orderForm" novalidate data-reveal>
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" type="text" autocomplete="name" placeholder="Full name" required>
+        </div>
+
+        <div class="field">
+          <label for="f-phone">Phone number</label>
+          <input id="f-phone" type="tel" autocomplete="tel" placeholder="+92 300 0000000">
+        </div>
+
+        <div class="field">
+          <label for="f-wa">WhatsApp number</label>
+          <input id="f-wa" type="tel" placeholder="Same as phone, or a different one">
+        </div>
+
+        <div class="field">
+          <label for="f-product">Product</label>
+          <select id="f-product" required></select>
+        </div>
+
+        <div class="field">
+          <label for="f-qty">Quantity</label>
+          <input id="f-qty" type="number" min="1" max="99" value="1">
+        </div>
+
+        <div class="field">
+          <label for="f-flavor">Cake flavour</label>
+          <select id="f-flavor"></select>
+        </div>
+
+        <div class="field">
+          <label for="f-size">Cake size</label>
+          <select id="f-size"></select>
+        </div>
+
+        <div class="field">
+          <label for="f-date">Preferred delivery date</label>
+          <input id="f-date" type="date">
+        </div>
+
+        <div class="field field--full">
+          <label for="f-design">Preferred design</label>
+          <input id="f-design" type="text" placeholder="Colours, theme, style — or a photo you'll send on WhatsApp">
+        </div>
+
+        <div class="field field--full">
+          <label for="f-message">Message on cake</label>
+          <input id="f-message" type="text" placeholder="Happy Birthday Ayesha">
+        </div>
+
+        <div class="field field--full">
+          <label for="f-address">Delivery address</label>
+          <textarea id="f-address" placeholder="Street, area, city — plus a landmark if it helps"></textarea>
+        </div>
+
+        <div class="field field--full">
+          <label for="f-notes">Additional instructions</label>
+          <textarea id="f-notes" placeholder="Allergies, delivery timing, anything else we should know"></textarea>
+        </div>
+
+      </div>
+
+      <div class="form-actions">
+        <button class="btn" type="submit" id="orderSubmit">Place Order</button>
+        <button class="btn btn--wa" type="button" id="orderWa">Order via WhatsApp</button>
+      </div>
+
+      <div class="form-status" id="orderStatus" role="status" aria-live="polite"></div>
+
+      <p class="form-note">
+        <strong>Note for the site owner:</strong> two values in <code>js/data.js</code> are still
+        placeholders. Put your number in <code>contact.whatsapp</code> so both buttons reach you,
+        and paste a free key from <a href="https://web3forms.com" target="_blank" rel="noopener">web3forms.com</a>
+        into <code>formAccessKey</code> to have every order emailed to you as well. Until then,
+        <em>Place Order</em> hands the details to WhatsApp rather than sending them anywhere.
+      </p>
+    </form>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
