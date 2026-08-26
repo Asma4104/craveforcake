@@ -35,22 +35,21 @@ const SITE = {
     copyright: "© 2026 Crave for Cake. All Rights Reserved.",
     logo: "assets/images/logo.png",
     logoMark: "assets/images/logo-mark.png",
-    footerNote: "Phone, WhatsApp and email shown are placeholders."
+    footerNote: ""
   },
 
   /* ------------------------------------------------------------- CONTACT
-     Instagram, delivery area, ordering terms and business hours are real.
-     The phone, WhatsApp and email are still PLACEHOLDERS — send them over
-     and they get replaced here only.
+     Everything here is real — phone, WhatsApp, email, Instagram, delivery
+     area, ordering terms and business hours.
      whatsapp  → digits only, with country code, no + and no spaces.
                  Pakistan example: 923001234567
   ----------------------------------------------------------------------- */
   contact: {
-    whatsapp: "920000000000",              // PLACEHOLDER
-    whatsappDisplay: "+92 000 0000000",    // PLACEHOLDER
-    phone: "920000000000",                 // PLACEHOLDER
-    phoneDisplay: "+92 000 0000000",       // PLACEHOLDER
-    email: "hello@craveforcake.com",       // PLACEHOLDER
+    whatsapp: "923012240718",              // real
+    whatsappDisplay: "+92 301 2240718",    // real
+    phone: "923012240718",                 // real
+    phoneDisplay: "+92 301 2240718",       // real
+    email: "craveforcake16@gmail.com",     // real
     instagramHandle: "@cravefor_cake",     // real
     instagramUrl: "https://www.instagram.com/cravefor_cake/",   // real
     deliveryAreas: ["Karachi"],            // real — you deliver in Khi only
@@ -81,7 +80,7 @@ const SITE = {
      Until a key is pasted here, both forms fall back to WhatsApp: they hand
      the filled-in details to WhatsApp instead of emailing them.
   ======================================================================== */
-  formAccessKey: "",                     // PLACEHOLDER — paste your Web3Forms key
+  formAccessKey: "8dfb5555-b150-4a40-87c6-d18849727b49",   // Web3Forms key — orders + messages arrive by email
 
   /* ----------------------------------------------------------------- HERO */
   hero: {

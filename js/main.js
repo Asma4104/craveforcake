@@ -767,6 +767,51 @@
         .join("\n");
     }
 
+    /* ------------------------------------------------- the order email
+       Web3Forms prints one row per field, in the order they are sent, and
+       prints the empty ones too. So the mail is only as readable as what
+       we hand it: a few grouped lines, nothing blank, and the things that
+       matter first — what was ordered, when it is needed, who to call. */
+
+    function niceDate(iso) {
+      if (!iso) return "";
+      const d = new Date(iso + "T00:00:00");
+      if (isNaN(d)) return iso;
+      return d.toLocaleDateString("en-GB",
+        { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+    }
+
+    function orderLine(v) {
+      const qty = Number(v["Quantity"]) > 1 ? ` × ${v["Quantity"]}` : "";
+      const extras = [v["Flavour"], v["Size"]].filter(Boolean).join(", ");
+      return v["Product"] + qty + (extras ? ` — ${extras}` : "");
+    }
+
+    function emailFields(v) {
+      const wa = v["WhatsApp"] && v["WhatsApp"] !== v["Phone"]
+        ? `${v["WhatsApp"]} (WhatsApp)` : "";
+      const rows = {
+        "Order": orderLine(v),
+        "Needed by": niceDate(v["Delivery date"]),
+        "Customer": v["Name"],
+        "Reach them on": [v["Phone"], wa].filter(Boolean).join("  ·  "),
+        "Deliver to": v["Delivery address"],
+        "Writing on the cake": v["Message on cake"],
+        "Design": v["Design"],
+        "Notes": v["Notes"]
+      };
+      Object.keys(rows).forEach((k) => { if (!rows[k]) delete rows[k]; });
+      return rows;
+    }
+
+    function emailSubject(v) {
+      /* short enough to read in a phone notification */
+      const qty = Number(v["Quantity"]) > 1 ? ` × ${v["Quantity"]}` : "";
+      const when = niceDate(v["Delivery date"]).replace(/,? \d{4}$/, "");
+      return ["New order · " + v["Product"] + qty, v["Name"], when ? "for " + when : ""]
+        .filter(Boolean).join("  ·  ");
+    }
+
     $("#orderWa", form).addEventListener("click", () => {
       const v = values(), missing = required(v);
       if (missing.length) {
@@ -796,7 +841,7 @@
       busy(btn, true, "Sending…");
       status("ok", "Sending your order…");
 
-      sendToEmail(`New order — ${v["Product"] || SITE.brand.name}`, v)
+      sendToEmail(emailSubject(v), emailFields(v))
         .then(() => {
           form.reset();
           status("ok",
@@ -893,8 +938,10 @@
       busy(btn, true, "Sending…");
       show("ok", "Sending your message…");
 
-      sendToEmail(`Website message from ${name}`,
-        { Name: name, Email: email, Message: msg, replyto: email })
+      const fields = { "Message": msg, "From": name };
+      if (email) { fields["Email"] = email; fields.replyto = email; }
+
+      sendToEmail("Message · " + name, fields)
         .then(() => {
           form.reset();
           show("ok", `<strong>Thanks, ${esc(name)}.</strong> Your message has reached us and we'll reply as soon as we can.`);
