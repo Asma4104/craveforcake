@@ -944,15 +944,14 @@ p:last-child{ margin-bottom:0; }
 
 /* ----------------------------------------------------------- about page */
 .about-split{ display:grid; grid-template-columns:.85fr 1fr; gap:clamp(30px,4.5vw,72px); align-items:center; }
-.about-figure{ position:relative; }
+.about-figure{ position:relative; margin:0; }
 .about-figure img{
-  width:100%; aspect-ratio:4/5; object-fit:cover;   /* about image is 4:5 */
+  /* height:auto is what lets aspect-ratio win — without it the height="1100"
+     attribute on the tag sets the height and the photo stretches into a
+     tall strip on a phone */
+  width:100%; height:auto; aspect-ratio:4/5; object-fit:cover;   /* about image is 4:5 */
   border-radius:var(--r-xl);
   box-shadow:var(--shadow-l);
-}
-.about-figure::before{
-  content:""; position:absolute; inset:18px -18px -18px 18px;
-  border:1px solid var(--sand); border-radius:var(--r-xl); z-index:-1;
 }
 .about-points{ display:grid; gap:1.1rem; margin-top:2rem; }
 .about-point{ display:flex; gap:1rem; align-items:flex-start; }
@@ -1053,7 +1052,7 @@ p:last-child{ margin-bottom:0; }
   .masonry{ columns:2; }
   .contact-grid{ grid-template-columns:1fr; }
   .about-split{ grid-template-columns:1fr; }
-  .about-figure{ max-width:440px; }
+  .about-figure{ max-width:440px; margin-inline:auto; }
   .footer__grid{ grid-template-columns:1fr 1fr; }
 }
 @media (max-width:860px){
