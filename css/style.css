@@ -895,6 +895,7 @@ p:last-child{ margin-bottom:0; }
 .form-grid .field--full{ grid-column:1/-1; }
 .form-actions{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.4rem; }
 .form-note{ font-size:.78rem; color:var(--muted); margin-top:1.1rem; line-height:1.6; }
+.form-note--tight{ margin-top:.55rem; }   /* sits under its own field, not the whole form */
 
 .form-status{
   margin-top:1.2rem; padding:14px 18px;

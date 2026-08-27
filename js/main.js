@@ -812,6 +812,21 @@
         .filter(Boolean).join("  ·  ");
     }
 
+    /* ------------------------------------------------- reference photos
+       The order itself travels by email, and a photo cannot ride along
+       with it. What we can do is open a chat that already says which
+       order the photo belongs to, so the customer only has to attach it. */
+
+    function photoLink(v) {
+      const what = [v["Name"], v["Product"] && `for the ${v["Product"].toLowerCase()}`]
+        .filter(Boolean).join(" ");
+      return waLink(`Hi ${SITE.brand.name}! This is ${what} — here is the design I have in mind.`);
+    }
+
+    function photoButton(v) {
+      return `<a class="btn btn--wa btn--sm" href="${photoLink(v)}" target="_blank" rel="noopener">Send a reference photo</a>`;
+    }
+
     $("#orderWa", form).addEventListener("click", () => {
       const v = values(), missing = required(v);
       if (missing.length) {
@@ -819,7 +834,8 @@
         return;
       }
       window.open(waLink(summary(v)), "_blank", "noopener");
-      status("ok", "Your order details opened in WhatsApp. Send the message to confirm.");
+      status("ok", "Your order details opened in WhatsApp. Send the message to confirm, " +
+        "and attach your reference photos to that same chat.");
     });
 
     form.addEventListener("submit", (e) => {
@@ -846,7 +862,9 @@
           form.reset();
           status("ok",
             `<strong>Thank you, ${esc(v["Name"])}.</strong> Your order has reached us. ` +
-            `We'll confirm the details and the price with you shortly.`);
+            `We'll confirm the details and the price with you shortly.<br><br>` +
+            `Have a photo of the design you want? Send it over on WhatsApp — ` +
+            `it is the easiest way to show us.<br><br>` + photoButton(v));
         })
         .catch((err) => {
           status("err",
